@@ -20,7 +20,7 @@ class Usermodel extends Component{
 		}
 		
 		this.setState({[e.target.name] : e.target.value});
-		this.props.handleInput(e, type);
+		this.props.handleInput(e, type, this.state.name, this.state.email);
 	}
 
 	render(){
@@ -48,7 +48,7 @@ const  mapStateToProps = (state) => {
 
 const  mapDispatchToProps = (dispatch) => {
     return {
-    	handleInput : (e, addType) => dispatch({type : "HANDLE_INPUT", inputField : e, addType : addType})
+    	handleInput : (e, addType, name, email) => dispatch({type : "HANDLE_INPUT", inputField : e, addType : addType, name : name, email : email})
     }
 }
 
