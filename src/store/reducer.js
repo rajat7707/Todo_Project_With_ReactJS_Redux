@@ -40,6 +40,8 @@ const reducer = (state = initialState , action) => {
 
 		if(newState?.singleUserData){
 			if(newState.singleUserData.email === "" || newState.singleUserData.name === ""){
+				console.log(newState.singleUserData);
+				console.log(newState.usersData);
 				return  {
 					newState,
 					usersData : newState.usersData,
@@ -140,17 +142,30 @@ const reducer = (state = initialState , action) => {
 		if(newState?.singleUserData?.id !== 0){
 			newState.usersData.filter( (val) => {
 				if( val.id === newState.singleUserData.id ){
-
+				
 					if(action.addType === "addUser" ){
 						if(action.inputField.target.name === "email"){
-							newState.singleUserData.email = action.inputField.target.value ;
+
+							// If the email section is blank set it to initial state
+							if(action.inputField.target.value === "" || action.inputField.target.value === undefined){
+								newState.singleUserData.email = action.email ;
+							}else{
+								newState.singleUserData.email = action.inputField.target.value ;
+							}
+							
 							return{
 								newState,
 								singleUserData : newState.singleUserData,
 							}
 
-						}else if(action.inputField.target.name === "name"){
-							newState.singleUserData.name = action.inputField.target.value ;
+						}else if(action.inputField.target.name === "name"){ // If the name section is blank set it to initial state
+
+							if(action.inputField.target.value === "" || action.inputField.target.value === undefined){
+								newState.singleUserData.name = action.name ;
+							}else{
+								newState.singleUserData.name = action.inputField.target.value ;
+							}
+
 							return{
 								newState,
 								singleUserData : newState.singleUserData,
@@ -179,14 +194,27 @@ const reducer = (state = initialState , action) => {
 
 					if(action.addType === "addTodo" ){
 						if(action.inputField.target.name === "date"){
-							newState.singleTodoData.date = action.inputField.target.value ;
+
+							// If the date section is blank set it to initial state
+							if(action.inputField.target.value === "" || action.inputField.target.value === undefined){
+								newState.singleTodoData.date = action.date ;
+							}else{
+								newState.singleTodoData.date = action.inputField.target.value ;
+							}
+
 							return{
 								newState,
 								singleTodoData : newState.singleTodoData,
 							}
 
-						}else if(action.inputField.target.name === "time"){
-							newState.singleTodoData.time = action.inputField.target.value ;
+						}else if(action.inputField.target.name === "time"){ // If the time section is blank set it to initial state
+
+							if(action.inputField.target.value === "" || action.inputField.target.value === undefined){
+								newState.singleTodoData.time = action.time ;
+							}else{
+								newState.singleTodoData.time = action.inputField.target.value ;
+							}
+
 							return{
 								newState,
 								singleTodoData : newState.singleTodoData,
