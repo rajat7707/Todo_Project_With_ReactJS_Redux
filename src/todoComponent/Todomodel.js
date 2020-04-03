@@ -10,7 +10,7 @@ class Todomodel extends Component{state
 
 	handleInput = (e, type) => {
 		this.setState({[e.target.name] : e.target.value});
-		this.props.handleInput(e, type);
+		this.props.handleInput(e, type, this.state.date, this.state.time);
 	}
 
 
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-    	handleInput : (e, addType) => dispatch({type : "HANDLE_INPUT", inputField : e, addType : addType})
+    	handleInput : (e, addType, date, time) => dispatch({type : "HANDLE_INPUT", inputField : e, addType : addType, date : date, time : time})
     }
 }
 
