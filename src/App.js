@@ -10,7 +10,8 @@ class App extends Component{
   state = {
     showRedirect : false,
   }
-  componentWillMount(){ // Redirect to dafault route if user put an invalid URL
+  
+  UNSAFE_componentWillMount(){ // Redirect to dafault route if user put an invalid URL
     if(window.location.pathname !== "/user" && window.location.pathname !== "/todos"){
       this.setState({showRedirect : true})
     }
