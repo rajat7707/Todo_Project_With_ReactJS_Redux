@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function Userlist() {
 
+  // Used to Map the state same like mapStateToProps in class component :-
   const selector = useSelector( (state) => {
       return {
           flashMsg        : state.flashMsg,
@@ -15,6 +16,8 @@ export default function Userlist() {
           userPopup       : state.userPopup, 
       }
   });
+  
+  // Used to dispatch action same like mapDispatchToProps in class component :-
   const dispatchAction = useDispatch();
 
   selector.usersData.map((value, index) => {
