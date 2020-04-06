@@ -1,5 +1,5 @@
 import React from 'react';
-import DatatablePage from '../commonComponent/info_list';
+import DatatableComponent from '../commonComponent/info_list';
 import Edituserpopup from '../commonComponent/Edituserpopup';
 import Flashmessage from '../commonComponent/flashmessage';
 import { NavLink } from 'react-router-dom';
@@ -35,7 +35,7 @@ export default function Userlist() {
     <div>
       <button type="button" className="btn btn-primary" onClick = {((e) => dispatchAction({type : "SHOW_POPUP", popType: "USER_POP"}))}>Create User</button><br /><br />
       { selector.flashMsg !== "" && selector.flashMsg !== undefined && <Flashmessage flashMsg={selector.flashMsg} type = {selector.errorType} />}
-      <DatatablePage type = "userInfo" data = {selector.usersData} />
+      <DatatableComponent type = "userInfo" data = {selector.usersData} />
       { selector.userPopup && <Edituserpopup section = "ADD_USER_POP" />}
     </div>
   );
