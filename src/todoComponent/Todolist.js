@@ -1,5 +1,5 @@
 import React  from 'react';
-import DatatablePage from '../commonComponent/info_list'
+import DatatableComponent from '../commonComponent/info_list'
 import Edituserpopup from '../commonComponent/Edituserpopup';
 import Flashmessage from '../commonComponent/flashmessage';
 import { NavLink } from 'react-router-dom';
@@ -33,7 +33,7 @@ export default function Todolist() {
     <div>
       <button type="button" className="btn btn-primary" onClick = {((e) => dispatchAction({type : "SHOW_POPUP", popType:"TODO_POP"}))}>Create Todo</button><br /><br />
       { selector.todoFlashMsg !== "" && selector.todoFlashMsg !== undefined && <Flashmessage flashMsg={selector.todoFlashMsg} type = {selector.errorType} />}
-      <DatatablePage type = "todosInfo" data = {selector.todosData} />
+      <DatatableComponent type = "todosInfo" data = {selector.todosData} />
       { selector.userPopup && <Edituserpopup section = "ADD_TODO_POP" />}
     </div>
   );
