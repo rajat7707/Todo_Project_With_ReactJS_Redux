@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function Todolist() {
-
+  
+  // Used to Map the state same like mapStateToProps in class component :-
   const selector = useSelector( (state) => {
       return {
           todoFlashMsg    : state.todoFlashMsg,
@@ -15,6 +16,8 @@ export default function Todolist() {
           userPopup       : state.userPopup, 
       }
   });
+  
+  // Used to dispatch action same like mapDispatchToProps in class component :-
   const dispatchAction = useDispatch();
 
   selector.todosData.map((value, index) => {
